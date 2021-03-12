@@ -1,0 +1,170 @@
+[
+	{
+		"product": "окна",
+		"type": "1-створчатые",
+		"width": 900,
+		"height": 1400,
+		"minWidth": 500,
+		"maxWidth": 1500,
+		"minHeight": 0,
+		"maxHeight": 1800,
+		"iconSrc": "w_1_1.png",
+		"imgSrc": "i_1_1.png",
+		"systems": {
+			"Blitz new": 4941,
+			"Thermo": 5231,
+			"Grazio": 5746,
+			"Delight": 6221,
+			"Brilliant": 6489,
+			"Intelio": 7470,
+			"Geneo": 15572
+		}
+	},
+	{
+		"product": "окна",
+		"type": "1-створчатые",
+		"width": 900,
+		"height": 1400,
+		"minWidth": 500,
+		"maxWidth": 1500,
+		"minHeight": 0,
+		"maxHeight": 1800,
+		"iconSrc": "w_1_2.png",
+		"imgSrc": "i_1_2.png",
+		"systems": {
+			"Blitz new": 4940,
+			"Thermo": 5231,
+			"Grazio": 5746,
+			"Delight": 6221,
+			"Brilliant": 6489,
+			"Intelio": 7470,
+			"Geneo": 15570
+		}
+	},
+	{
+		"product": "окна",
+		"type": "1-створчатые",
+		"width": 900,
+		"height": 1400,
+		"minWidth": 500,
+		"maxWidth": 1500,
+		"minHeight": 0,
+		"maxHeight": 1800,
+		"iconSrc": "w_1_3.png",
+		"imgSrc": "i_1_3.png",
+		"systems": {
+			"Blitz new": 4940,
+			"Thermo": 5231,
+			"Grazio": 5746,
+			"Delight": 6221,
+			"Brilliant": 6489,
+			"Intelio": 7470,
+			"Geneo": 15570
+		}
+	},
+    {
+		"product": "окна",
+		"type": "2-створчатые",
+		"width": 900,
+		"height": 1400,
+		"minWidth": 500,
+		"maxWidth": 1500,
+		"minHeight": 0,
+		"maxHeight": 1800,
+		"iconSrc": "w_1_1.png",
+		"imgSrc": "i_1_1.png",
+		"systems": {
+			"Blitz new": 4940,
+			"Thermo": 5231,
+			"Grazio": 5746,
+			"Delight": 6221,
+			"Brilliant": 6489,
+			"Intelio": 7470,
+			"Geneo": 15570
+		}
+	},
+    {
+		"product": "окна",
+		"type": "3-створчатые",
+		"width": 900,
+		"height": 1400,
+		"minWidth": 500,
+		"maxWidth": 1500,
+		"minHeight": 0,
+		"maxHeight": 1800,
+		"iconSrc": "w_1_1.png",
+		"imgSrc": "i_1_1.png",
+		"systems": {
+			"Blitz new": 4940,
+			"Thermo": 5231,
+			"Grazio": 5746,
+			"Delight": 6221,
+			"Brilliant": 6489,
+			"Intelio": 7470,
+			"Geneo": 15570
+		}
+	},
+    {
+		"product": "окна",
+		"type": "4-створчатые",
+		"width": 900,
+		"height": 1400,
+		"minWidth": 500,
+		"maxWidth": 1500,
+		"minHeight": 0,
+		"maxHeight": 1800,
+		"iconSrc": "w_1_1.png",
+		"imgSrc": "i_1_1.png",
+		"systems": {
+			"Blitz new": 4940,
+			"Thermo": 5231,
+			"Grazio": 5746,
+			"Delight": 6221,
+			"Brilliant": 6489,
+			"Intelio": 7470,
+			"Geneo": 15570
+		}
+	},
+    {
+		"product": "двери",
+		"type": "балконные двери",
+		"width": 900,
+		"height": 1400,
+		"minWidth": 500,
+		"maxWidth": 1500,
+		"minHeight": 0,
+		"maxHeight": 1800,
+		"iconSrc": "w_1_1.png",
+		"imgSrc": "i_1_1.png",
+		"systems": {
+			"Blitz new": 4940,
+			"Thermo": 5231,
+			"Grazio": 5746,
+			"Delight": 6221,
+			"Brilliant": 6489,
+			"Intelio": 7470,
+			"Geneo": 15570
+		}
+	},
+    {
+		"product": "двери",
+		"type": "балконные блоки",
+		"width": 900,
+		"height": 1400,
+		"minWidth": 500,
+		"maxWidth": 1500,
+		"minHeight": 0,
+		"maxHeight": 1800,
+		"iconSrc": "w_1_1.png",
+		"imgSrc": "i_1_1.png",
+		"systems": {
+			"Blitz new": 4940,
+			"Thermo": 5231,
+			"Grazio": 5746,
+			"Delight": 6221,
+			"Brilliant": 6489,
+			"Intelio": 7470,
+			"Geneo": 15570
+		}
+	}
+]
