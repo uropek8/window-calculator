@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: "select-data-item",
   props: {
     items: {
       type: Object,

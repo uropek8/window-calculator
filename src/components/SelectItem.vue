@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: "select-item",
   props: {
     isFull: {
       type: Boolean,

@@ -6,8 +6,8 @@
 
 @tailwind utilities;
 
-/* @layer components {
-	.active {
-		@apply border-2 border-red-500;
+@layer components {
+	.btn {
+		@apply cursor-pointer bg-red-500 px-6 text-white font-sans font-normal text-2xl;
 	}
-} */
+}

@@ -14,11 +14,13 @@
 
 <script>
 export default {
+  name: "construct-list",
   props: {
     icons: {
       type: Array,
       required: true,
     },
+    modelValue: [String],
   },
   data() {
     return {
@@ -31,7 +33,7 @@ export default {
     },
 
     handleActiveIcon(idx, icon) {
-      this.$emit("selectIcon", icon);
+      this.$emit("update:modelValue", icon);
       this.activeIdx = idx;
     },
   },
