@@ -18,14 +18,14 @@
                   <span class="text-green-500 font-sans text-2xl">2.</span>
                   &nbsp;Что рассчитать?
                 </p>
-                <select-item :items="productsList" :isFull="false" @select="selectProduct" />
+                <select-item :items="productsList" :isFull="false" v-model="product" />
               </div>
               <div class="flex flex-col flex-grow">
                 <p class="text-black font-sans text-2xl mb-4">
                   <span class="text-green-500 font-sans text-2xl">3.</span>
                   &nbsp;Выберите тип:
                 </p>
-                <select-item :items="typesList" :isFull="false" @select="selectType" />
+                <select-item :items="typesList" :isFull="false" v-model="type" />
               </div>
             </div>
             <div class="py-6 px-5">
@@ -37,7 +37,7 @@
                 <div class="flex items-center justify-between">
                   <span class="text-black font-sans text-sm font-light">Система окон:</span>
                   <div class="max-w-xs w-full">
-                    <select-item :items="systems" :isFull="true" @select="selectSystem" />
+                    <select-item :items="systems" :isFull="true" v-model="system" />
                   </div>
                 </div>
               </div>
@@ -209,18 +209,6 @@ export default {
   },
 
   methods: {
-    selectProduct(val) {
-      this.product = val;
-    },
-
-    selectType(val) {
-      this.type = val;
-    },
-
-    selectSystem(val) {
-      this.system = val;
-    },
-
     checkIcon(icon) {
       this.iconSrc = icon;
     },
