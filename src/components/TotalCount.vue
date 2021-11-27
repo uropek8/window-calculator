@@ -1,7 +1,7 @@
 <template>
   <p class="text-black font-sans font-light text-sm" :class="{ 'mb-1': !isLast }">
     {{ label }}&nbsp;
-    <span class="text-black font-sans font-normal text-sm">${{ value }}</span>
+    <span class="text-black font-sans font-normal text-sm">${{ count }}</span>
   </p>
 </template>
 
@@ -13,8 +13,8 @@ export default {
       type: String,
       required: true,
     },
-    value: {
-      type: String,
+    count: {
+      type: Number,
       required: true,
     },
     isLast: {

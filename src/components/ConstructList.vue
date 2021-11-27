@@ -10,18 +10,24 @@
       />
     </li>
   </ul>
+  <bus-btn></bus-btn>
 </template>
 
 <script>
+import BusBtn from "./BusBtn.vue";
+
 export default {
   name: "construct-list",
+  components: {
+    BusBtn,
+  },
   props: {
     icons: {
       type: Array,
       required: true,
     },
-    modelValue: [String],
   },
+  inheritAttrs: false,
   data() {
     return {
       activeIdx: 0,
@@ -33,7 +39,7 @@ export default {
     },
 
     handleActiveIcon(idx, icon) {
-      this.$emit("update:modelValue", icon);
+      this.$emit("update:model-value", icon);
       this.activeIdx = idx;
     },
   },

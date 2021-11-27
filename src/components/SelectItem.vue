@@ -2,7 +2,6 @@
   <select
     class="border-2 border-gray-100 focus:ring-0"
     :class="{ 'w-full': isFull }"
-    :value="modelValue"
     @change="selectValue"
   >
     <option v-for="item in items" :key="item" :value="item">{{ item }}</option>
@@ -21,11 +20,10 @@ export default {
       type: Array,
       required: true,
     },
-    modelValue: [String],
   },
   methods: {
     selectValue(e) {
-      this.$emit("update:modelValue", e.target.value);
+      this.$emit("update:model-value", e.target.value);
     },
   },
 };
