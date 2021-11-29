@@ -154,12 +154,16 @@
       <div class="flex justify-between mt-5">
         <div class="w-1/2 flex flex-col mx-2">
           <span>Value on blur from left: {{ leftValue }}</span>
-          <custom-input :model-value="leftValue" @update:model-value="updateLeftValue" />
+          <custom-input
+            v-model="leftValue"
+            @blur="handleBlurLeftCustomInput"
+            @input="handleInputLeftCustomInput"
+          />
         </div>
-        <div class="w-1/2 flex flex-col mx-2">
+        <!-- <div class="w-1/2 flex flex-col mx-2">
           <span>Value on blur from right: {{ rightValue }}</span>
           <custom-input :model-value="rightValue" @update:model-value="updateRightValue" />
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -168,6 +172,7 @@
 <script>
 import { mapGetters, mapActions, mapMutations, mapState } from "vuex";
 import eventBus from "./emmiter/eventBus";
+import apiService from "./services/api-service";
 
 import ConstructList from "./components/ConstructList";
 import SelectItem from "./components/SelectItem";
@@ -280,11 +285,17 @@ export default {
     handleRemoveOrder(id) {
       this.orderList = this.orderList.filter((order) => order.id !== id);
     },
-    updateLeftValue(value) {
-      this.leftValue = value;
+    // updateLeftValue(value) {
+    //   this.leftValue = value;
+    // },
+    // updateRightValue(value) {
+    //   this.rightValue = value;
+    // },
+    handleBlurLeftCustomInput(value) {
+      console.log("BLUR EVENT VALUE: ", value);
     },
-    updateRightValue(value) {
-      this.rightValue = value;
+    handleInputLeftCustomInput(value) {
+      console.log("INPUT EVENT VALUE: ", value);
     },
   },
 
