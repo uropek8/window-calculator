@@ -313,6 +313,8 @@ export default {
     this.takeOptionSills();
     this.takeOptionRefluxes();
     this.takeOptionLaminations();
+
+    await apiService.get("/users");
   },
   beforeUnmount() {
     eventBus.$off("custom-event");
