@@ -21,8 +21,8 @@
                 <select-item
                   :items="allOptionProducts"
                   :isFull="false"
-                  :model-value="productValue"
-                  @update:model-value="setProductValue"
+                  :modelValue="productValue"
+                  @update:modelValue="setProductValue"
                 />
               </div>
               <div class="flex flex-col flex-grow">
@@ -30,8 +30,8 @@
                 <select-item
                   :items="allOptionTypes"
                   :isFull="false"
-                  :model-value="typeValue"
-                  @update:model-value="setTypeValue"
+                  :modelValue="typeValue"
+                  @update:modelValue="setTypeValue"
                 />
               </div>
             </div>
@@ -41,37 +41,37 @@
                 <select-item
                   :items="allOptionSystems"
                   :isFull="true"
-                  :model-value="systemValue"
-                  @update:model-value="setSystemValue"
+                  :modelValue="systemValue"
+                  @update:modelValue="setSystemValue"
                 />
               </card-inline>
               <card-title :title="'Дополнительные опции'" :count="5" :isTop="false" />
               <card-inline :label="labelPacket" :isLast="false">
                 <select-data-item
                   :items="allOptionPackets"
-                  :model-value="packetValue"
-                  @update:model-value="setPacketValue"
+                  :modelValue="packetValue"
+                  @update:modelValue="setPacketValue"
                 />
               </card-inline>
               <card-inline :label="labelSill" :isLast="false">
                 <select-data-item
                   :items="allOptionSills"
-                  :model-value="sillValue"
-                  @update:model-value="setSillValue"
+                  :modelValue="sillValue"
+                  @update:modelValue="setSillValue"
                 />
               </card-inline>
               <card-inline :label="labelReflux" :isLast="false">
                 <select-data-item
                   :items="allOptionRefluxes"
-                  :model-value="refluxValue"
-                  @update:model-value="setRefluxValue"
+                  :modelValue="refluxValue"
+                  @update:modelValue="setRefluxValue"
                 />
               </card-inline>
               <card-inline :label="labelLamination" :isLast="true">
                 <select-data-item
                   :items="allOptionLaminations"
-                  :model-value="laminationValue"
-                  @update:model-value="setLaminationValue"
+                  :modelValue="laminationValue"
+                  @update:modelValue="setLaminationValue"
                 />
               </card-inline>
             </div>
@@ -88,7 +88,7 @@
                   <total-count :label="'Монтаж:'" :count="0" :isLast="false" />
                   <total-count :label="'Отделка:'" :count="0" :isLast="true" />
                 </div>
-                <button class="btn" type="button">Заказать</button>
+                <button class="btn" type="button" @click="createOrder">Заказать</button>
               </div>
               <p class="text-black font-sans font-light text-xs">
                 <b>Важно:</b> калькулятор показывает ориентировочные цены на пластиковые окна по
@@ -97,6 +97,68 @@
               </p>
             </div>
           </div>
+        </div>
+      </div>
+      <template v-if="orderList.length">
+        <ul class="w-full flex flex-wrap mt-5">
+          <li
+            class="w-full flex justify-between items-start bg-white px-5 py-4 mt-2"
+            v-for="order in orderList"
+            :key="order.id"
+          >
+            <div class="flex flex-col">
+              <span
+                >Prouct - <b>{{ order.product }}</b></span
+              >
+              <span
+                >Prouct type - <b>{{ order.type }}</b></span
+              >
+              <span
+                >Prouct system - <b>{{ order.system }}</b></span
+              >
+              <span
+                >Packet option - <b>{{ order.packet }}</b></span
+              >
+              <span
+                >Sill option - <b>{{ order.sill }}</b></span
+              >
+              <span
+                >Reflux option - <b>{{ order.reflux }}</b></span
+              >
+              <span
+                >Lamination option - <b>{{ order.lamination }}</b></span
+              >
+            </div>
+            <button
+              class="flex items-center justify-center text-red-500"
+              @click="handleRemoveOrder(order.id)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </template>
+      <div class="flex justify-between mt-5">
+        <div class="w-1/2 flex flex-col mx-2">
+          <span>Value on blur from left: {{ leftValue }}</span>
+          <custom-input :model-value="leftValue" @update:model-value="updateLeftValue" />
+        </div>
+        <div class="w-1/2 flex flex-col mx-2">
+          <span>Value on blur from right: {{ rightValue }}</span>
+          <custom-input :model-value="rightValue" @update:model-value="updateRightValue" />
         </div>
       </div>
     </div>
@@ -113,6 +175,7 @@ import SelectDataItem from "./components/SelectDataItem";
 import CardInline from "./components/CardInline.vue";
 import CardTitle from "./components/CardTitle.vue";
 import TotalCount from "./components/TotalCount.vue";
+import CustomInput from "./components/CustomInput.vue";
 
 export default {
   name: "App",
@@ -123,11 +186,15 @@ export default {
     CardInline,
     CardTitle,
     TotalCount,
+    CustomInput,
   },
   data() {
     return {
       imgSrc: "i_1_1.png",
       isOpen: false,
+      orderList: [],
+      leftValue: "",
+      rightValue: "",
     };
   },
 
@@ -186,6 +253,39 @@ export default {
       setRefluxValue: "params/setRefluxValue",
       setLaminationValue: "params/setLaminationValue",
     }),
+    createOrder() {
+      const order = {
+        id: Date.now(),
+        product: this.productValue,
+        type: this.typeValue,
+        system: this.systemValue,
+        icon: this.iconSrc,
+        packet: this.packetValue,
+        sill: this.sillValue,
+        reflux: this.refluxValue,
+        lamination: this.laminationValue,
+      };
+
+      this.orderList.push(order);
+
+      this.takeOptionProducts();
+      this.takeOptionTypes();
+      this.takeOptionSystems();
+      this.takeIcons();
+      this.takeOptionPackets();
+      this.takeOptionSills();
+      this.takeOptionRefluxes();
+      this.takeOptionLaminations();
+    },
+    handleRemoveOrder(id) {
+      this.orderList = this.orderList.filter((order) => order.id !== id);
+    },
+    updateLeftValue(value) {
+      this.leftValue = value;
+    },
+    updateRightValue(value) {
+      this.rightValue = value;
+    },
   },
 
   async mounted() {
