@@ -1,23 +1,18 @@
 <template>
   <select
     class="border-2 border-gray-100 focus:ring-0"
-    :class="{ 'w-full': isFull }"
     :value="modelValue"
     @change="selectValue"
   >
-    <option v-for="item in items" :key="item" :value="item">{{ item }}</option>
+    <option v-for="opt in options" :key="opt" :value="opt">{{ opt }}</option>
   </select>
 </template>
 
 <script>
 export default {
-  name: "select-item",
+  name: "AtomSelect",
   props: {
-    isFull: {
-      type: Boolean,
-      required: true,
-    },
-    items: {
+    options: {
       type: Array,
       required: true,
     },

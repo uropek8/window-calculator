@@ -2,10 +2,10 @@ import shop from "../../api/products";
 
 // initial state
 const state = () => ({
-  optionPackets: {},
-  optionSills: {},
-  optionRefluxes: {},
-  optionLaminations: {},
+  optionPackets: [],
+  optionSills: [],
+  optionRefluxes: [],
+  optionLaminations: [],
   packetTitle: "Стеклопакет",
   sillTitle: "Ширина подоконника",
   refluxTitle: "Ширина отлива",
@@ -60,32 +60,40 @@ const getters = {
 const actions = {
   async takeOptionPackets({ commit, getters }) {
     const allParams = await shop.getParams();
-    const options = allParams.find((item) => item.product === getters.labelPacket).value;
-    const value = Object.keys(options)[0];
+    const packetOptions = allParams.find((item) => item.product === getters.labelPacket).value;
+    const options = Object.values(packetOptions);
+    // const value = Object.keys(options)[0];
+    const value = options[0];
 
     commit("setOptionPackets", options);
     commit("setPacketValue", value);
   },
   async takeOptionSills({ commit, getters }) {
     const allParams = await shop.getParams();
-    const options = allParams.find((item) => item.product === getters.labelSill).value;
-    const value = Object.keys(options)[0];
+    const sillOptions = allParams.find((item) => item.product === getters.labelSill).value;
+    const options = Object.values(sillOptions);
+    // const value = Object.keys(options)[0];
+    const value = options[0];
 
     commit("setOptionSills", options);
     commit("setSillValue", value);
   },
   async takeOptionRefluxes({ commit, getters }) {
     const allParams = await shop.getParams();
-    const options = allParams.find((item) => item.product === getters.labelReflux).value;
-    const value = Object.keys(options)[0];
+    const refluxOptions = allParams.find((item) => item.product === getters.labelReflux).value;
+    const options = Object.values(refluxOptions);
+    // const value = Object.keys(options)[0];
+    const value = options[0];
 
     commit("setOptionRefluxes", options);
     commit("setRefluxValue", value);
   },
   async takeOptionLaminations({ commit, getters }) {
     const allParams = await shop.getParams();
-    const options = allParams.find((item) => item.product === getters.labelLamination).value;
-    const value = Object.keys(options)[0];
+    const laminationOptions = allParams.find((item) => item.product === getters.labelLamination).value;
+    const options = Object.values(laminationOptions);
+    // const value = Object.keys(options)[0];
+    const value = options[0];
 
     commit("setOptionLaminations", options);
     commit("setLaminationValue", value);

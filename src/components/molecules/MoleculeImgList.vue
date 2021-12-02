@@ -1,25 +1,23 @@
 <template>
   <ul class="flex">
     <li class="cursor-pointer mr-6 last:mr-0" v-for="(icon, idx) in icons" :key="icon">
-      <img
-        class="max-h-14 border-2 border-transparent"
+      <AtomImg
         :class="{ 'border-red-500': idx === activeIdx }"
         :src="getIconSrc(icon)"
-        @click="handleActiveIcon(idx, icon)"
         :alt="`Icon-${idx}`"
+        @click="handleActiveIcon(idx, icon)"
       />
     </li>
   </ul>
-  <bus-btn></bus-btn>
 </template>
 
 <script>
-import BusBtn from "./BusBtn.vue";
+import AtomImg from "../atoms/AtomImg.vue";
 
 export default {
-  name: "construct-list",
+  name: "MoleculeImgList",
   components: {
-    BusBtn,
+    AtomImg,
   },
   props: {
     icons: {
@@ -27,7 +25,6 @@ export default {
       required: true,
     },
   },
-  inheritAttrs: false,
   data() {
     return {
       activeIdx: 0,
@@ -35,7 +32,7 @@ export default {
   },
   methods: {
     getIconSrc(icon) {
-      return require(`../assets/img/win/${icon}`);
+      return require(`../../assets/img/win/${icon}`);
     },
 
     handleActiveIcon(idx, icon) {
@@ -45,5 +42,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

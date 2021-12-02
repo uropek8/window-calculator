@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "custom-input",
+  name: "AtomInput",
   props: {
     modelValue: {
       type: String,
@@ -22,10 +22,6 @@ export default {
     },
   },
   methods: {
-    // handleValueBlur(e) {
-    //   this.$emit("update:model-value", e.target.value);
-    //   e.target.value = "";
-    // },
     handleBlur() {
       this.$emit("blur", this.localValue);
     },
@@ -35,5 +31,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
