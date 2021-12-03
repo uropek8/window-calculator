@@ -39,9 +39,9 @@ export default {
       setIconSrc: "order/setIconSrc",
     }),
     handleToggle() {
-      eventBus.$emit("custom-event", this.isToggle);
       this.isToggle = !this.isToggle;
+      eventBus.$emit("custom-event", this.isToggle);
     },
-  }
+  },
 };
 </script>

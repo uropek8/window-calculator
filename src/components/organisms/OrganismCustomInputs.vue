@@ -2,13 +2,13 @@
   <div class="flex justify-between mt-5">
     <MoleculeCustomInput
       text="Value on blur from left:"
-      :value="leftValue"
+      v-model="left"
       :methodOnBlur="methodOnBlur"
       :methodOnInput="methodOnInput"
     />
     <MoleculeCustomInput
       text="Value on blur from right:"
-      :value="rightValue"
+      v-model="right"
       :methodOnBlur="methodOnBlur"
       :methodOnInput="methodOnInput"
     />
@@ -39,6 +39,24 @@ export default {
     methodOnInput: {
       type: Function,
       required: true,
+    },
+  },
+  computed: {
+    left: {
+      get() {
+        return this.leftValue;
+      },
+      set(value) {
+        this.$emit("update:leftValue", value);
+      },
+    },
+    right: {
+      get() {
+        return this.rightValue;
+      },
+      set(value) {
+        this.$emit("update:rightValue", value);
+      },
     },
   },
 };

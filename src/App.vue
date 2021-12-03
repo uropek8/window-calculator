@@ -16,8 +16,8 @@
       </div>
       <MoleculeOrderList v-if="orderList.length" :orders="orderList" :handle="handleRemoveOrder" />
       <OrganismCustomInputs
-        :leftValue="leftValue"
-        :rightValue="rightValue"
+        v-model:leftValue="leftValue"
+        v-model:rightValue="rightValue"
         :methodOnBlur="handleBlurLeftCustomInput"
         :methodOnInput="handleInputLeftCustomInput"
       />

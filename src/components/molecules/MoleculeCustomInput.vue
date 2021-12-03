@@ -1,7 +1,7 @@
 <template>
   <div class="w-1/2 flex flex-col mx-2">
-    <AtomInputLabel :text="text" :value="value" />
-    <AtomInput @blur="methodOnBlur" @input="methodOnInput" />
+    <AtomInputLabel :text="text" :value="outerValue" />
+    <AtomInput v-model="outerValue" @blur="methodOnBlur" @input="methodOnInput" />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
       type: String,
       required: true,
     },
-    value: {
+    modelValue: {
       type: String,
       required: true,
     },
@@ -31,6 +31,16 @@ export default {
     methodOnInput: {
       type: Function,
       required: true,
+    },
+  },
+  computed: {
+    outerValue: {
+      get() {
+        return this.modelValue;
+      },
+      set(value) {
+        this.$emit("update:modelValue", value);
+      },
     },
   },
 };
