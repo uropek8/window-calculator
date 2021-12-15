@@ -6,16 +6,16 @@
       :key="order.id"
     >
       <div class="flex flex-col">
-        <AtomBadge text="Prouct" :selection="order.product" />
-        <AtomBadge text="Prouct type" :selection="order.type" />
-        <AtomBadge text="Prouct system" :selection="order.system" />
-        <AtomBadge text="Packet option" :selection="order.packet" />
-        <AtomBadge text="Sill option" :selection="order.sill" />
-        <AtomBadge text="Reflux option" :selection="order.reflux" />
-        <AtomBadge text="Lamination option" :selection="order.lamination" />
+        <atom-badge text="Prouct" :selection="order.product" />
+        <atom-badge text="Prouct type" :selection="order.type" />
+        <atom-badge text="Prouct system" :selection="order.system" />
+        <atom-badge text="Packet option" :selection="order.packet" />
+        <atom-badge text="Sill option" :selection="order.sill" />
+        <atom-badge text="Reflux option" :selection="order.reflux" />
+        <atom-badge text="Lamination option" :selection="order.lamination" />
       </div>
       <button class="flex items-center justify-center text-red-500" @click="handle(order.id)">
-        <AtomCloseIcon />
+        <atom-close-icon />
       </button>
     </li>
   </ul>

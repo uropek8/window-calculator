@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="flex items-center justify-between">
-      <AtomLabel :text="label" />
+      <atom-label :text="label" />
       <div class="max-w-xs w-full">
-        <AtomSelect
+        <atom-select
           class="w-full"
           :options="options"
           :modelValue="value"

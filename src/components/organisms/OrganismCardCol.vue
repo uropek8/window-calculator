@@ -1,36 +1,36 @@
 <template>
   <div class="py-6 px-5">
-    <MoleculeName class="flex mb-4" count="4" content="Параметры" />
-    <MoleculeSelectItem
+    <molecule-name class="flex mb-4" count="4" content="Параметры" />
+    <molecule-select-item
       class="mb-5"
       label="Система окон:"
       :options="allOptionSystems"
       :value="systemValue"
       :method="setSystemValue"
     />
-    <MoleculeName class="flex mb-4" count="5" content="Дополнительные опции" />
-    <MoleculeSelectItem
+    <molecule-name class="flex mb-4" count="5" content="Дополнительные опции" />
+    <molecule-select-item
       class="mb-5"
       :label="labelPacket"
       :options="allOptionPackets"
       :value="packetValue"
       :method="setPacketValue"
     />
-    <MoleculeSelectItem
+    <molecule-select-item
       class="mb-5"
       :label="labelSill"
       :options="allOptionSills"
       :value="sillValue"
       :method="setSillValue"
     />
-    <MoleculeSelectItem
+    <molecule-select-item
       class="mb-5"
       :label="labelReflux"
       :options="allOptionRefluxes"
       :value="refluxValue"
       :method="setRefluxValue"
     />
-    <MoleculeSelectItem
+    <molecule-select-item
       class="mb-5"
       :label="labelLamination"
       :options="allOptionLaminations"

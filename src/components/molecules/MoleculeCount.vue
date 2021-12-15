@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center">
-    <AtomText :content="text"/>
-    <AtomSpan :content="count"/>
+    <atom-text :content="text"/>
+    <atom-span :content="count"/>
   </div>
 </template>
 

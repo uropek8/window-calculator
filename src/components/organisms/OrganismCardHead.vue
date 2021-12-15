@@ -1,8 +1,8 @@
 <template>
   <div class="flex items-center py-6 px-5 border-b-4 border-gray-200">
-    <MoleculeName class="flex mr-4" count="1" content="Конструкция:" />
-    <MoleculeImgList :icons="allIcons" :model-value="iconSrc" @update:model-value="setIconSrc" />
-    <AtomBtn type="button" class="ml-auto h-12" text="Toggle" @click="handleToggle" />
+    <molecule-name class="flex mr-4" count="1" content="Конструкция:" />
+    <molecule-img-list :icons="allIcons" v-model:img-icon="iconSrc" @update:imgIcon="setIconSrc" />
+    <atom-btn type="button" class="ml-auto h-12" text="Toggle" v-model="isToggle" @click="handleToggle" />
   </div>
 </template>
 

@@ -5,17 +5,17 @@
         Калькулятор окон REHAU {{ isOpen ? "- Hello from Event Bus" : "" }}
       </h3>
       <div class="w-full bg-white">
-        <OrganismCardHead />
+        <organism-card-head />
         <div class="flex">
           <div class="flex flex-col w-3/6 border-r-4 border-gray-200">
-            <OrganismCardRow />
-            <OrganismCardCol />
+            <organism-card-row />
+            <organism-card-col />
           </div>
-          <OrganismCardInfo :methodOnClick="createOrder" :imgSrc="getIconSrc(imgSrc)" />
+          <organism-card-info :methodOnClick="createOrder" :imgSrc="getIconSrc(imgSrc)" />
         </div>
       </div>
-      <MoleculeOrderList v-if="orderList.length" :orders="orderList" :handle="handleRemoveOrder" />
-      <OrganismCustomInputs
+      <molecule-order-list v-if="orderList.length" :orders="orderList" :handle="handleRemoveOrder" />
+      <organism-custom-inputs
         v-model:leftValue="leftValue"
         v-model:rightValue="rightValue"
         :methodOnBlur="handleBlurLeftCustomInput"

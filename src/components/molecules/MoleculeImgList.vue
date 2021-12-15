@@ -1,7 +1,7 @@
 <template>
   <ul class="flex">
     <li class="cursor-pointer mr-6 last:mr-0" v-for="(icon, idx) in icons" :key="icon">
-      <AtomImg
+      <atom-img
         :class="{ 'border-red-500': idx === activeIdx }"
         :src="getIconSrc(icon)"
         :alt="`Icon-${idx}`"
@@ -19,16 +19,23 @@ export default {
   components: {
     AtomImg,
   },
+  data() {
+    return {
+      activeIdx: 0,
+    };
+  },
   props: {
     icons: {
       type: Array,
       required: true,
     },
+    imgIcon: {
+      type: String,
+      required: true,
+    },
   },
-  data() {
-    return {
-      activeIdx: 0,
-    };
+  emits: {
+    "update:imgIcon": null,
   },
   methods: {
     getIconSrc(icon) {
@@ -36,7 +43,8 @@ export default {
     },
 
     handleActiveIcon(idx, icon) {
-      this.$emit("update:model-value", icon);
+      // this.$emit("update:model-value", icon);
+      this.$emit("update:imgIcon", icon);
       this.activeIdx = idx;
     },
   },

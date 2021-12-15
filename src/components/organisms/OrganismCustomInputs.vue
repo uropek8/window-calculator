@@ -1,12 +1,12 @@
 <template>
   <div class="flex justify-between mt-5">
-    <MoleculeCustomInput
+    <molecule-custom-input
       text="Value on blur from left:"
       v-model="left"
       :methodOnBlur="methodOnBlur"
       :methodOnInput="methodOnInput"
     />
-    <MoleculeCustomInput
+    <molecule-custom-input
       text="Value on blur from right:"
       v-model="right"
       :methodOnBlur="methodOnBlur"

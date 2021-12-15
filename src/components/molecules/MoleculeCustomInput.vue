@@ -1,7 +1,7 @@
 <template>
   <div class="w-1/2 flex flex-col mx-2">
-    <AtomInputLabel :text="text" :value="outerValue" />
-    <AtomInput v-model="outerValue" @blur="methodOnBlur" @input="methodOnInput" />
+    <atom-input-label :text="text" :value="outerValue" />
+    <atom-input v-model="outerValue" @blur="methodOnBlur" @input="methodOnInput" />
   </div>
 </template>
 
